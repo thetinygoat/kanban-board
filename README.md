@@ -1,8 +1,8 @@
 # Kanban Board
 
+## Video Preview
 
 https://user-images.githubusercontent.com/41128807/111077260-f5d33880-8515-11eb-9528-e319339bc9f2.mp4
-
 
 
 ## Libraries Used
