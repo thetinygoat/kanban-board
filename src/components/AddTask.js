@@ -67,6 +67,7 @@ export default function AddTask({ listId }) {
             placeholder="Task title"
             value={title}
             full
+            autoFocus
             onChange={(e) => setTitle(e.target.value)}
           />
           <TextArea

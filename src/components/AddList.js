@@ -53,6 +53,7 @@ export default function AddList() {
             placeholder="New list name"
             full
             value={listName}
+            autoFocus
             onChange={(e) => setListName(e.target.value)}
           />
           <ButtonGroup>
