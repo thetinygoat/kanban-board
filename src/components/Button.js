@@ -19,7 +19,6 @@ export function Button(props) {
     "justify-center",
     "items-center"
   );
-  console.log(btnClass);
   return (
     <button className={btnClass} {...props}>
       {props.icon && props.icon}

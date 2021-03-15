@@ -22,18 +22,23 @@ function App() {
 
   const handleOnDragEnd = (result) => {
     const { source, destination, draggableId, type } = result;
+
+    // check if the drop target is null
     if (destination === null) return;
+    // check if drop target hasn't changed
     if (
       source.droppableId === destination.droppableId &&
       source.index === destination.index
     )
       return;
 
-    if (type === "column") {
+    // check if the object being dropped is a list
+
+    if (type === "list") {
       const newListOrder = Array.from(data.listOrder);
       newListOrder.splice(source.index, 1);
       newListOrder.splice(destination.index, 0, draggableId);
-
+      // update listorder to reflect list reorder
       const newState = {
         ...data,
         listOrder: newListOrder,
@@ -41,9 +46,12 @@ function App() {
       updateData(newState);
       return;
     }
+
+    // get starting and ending list
     const start = data.lists[source.droppableId];
     const finish = data.lists[destination.droppableId];
 
+    // if the starting and ending list is same the card is being reorderd
     if (start === finish) {
       const newTasks = Array.from(start.tasks);
       newTasks.splice(source.index, 1);
@@ -64,6 +72,7 @@ function App() {
       return;
     }
 
+    // if the start and end lists are not same the card is being transferred
     const newStartTasks = Array.from(start.tasks);
     const newFinishTasks = Array.from(finish.tasks);
 
@@ -97,7 +106,7 @@ function App() {
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable
           direction="horizontal"
-          type="column"
+          type="list"
           droppableId="columnDroppable"
         >
           {(provided) => (

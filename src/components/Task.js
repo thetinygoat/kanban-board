@@ -24,6 +24,6 @@ Task.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
-  }),
-  index: PropTypes.number,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
